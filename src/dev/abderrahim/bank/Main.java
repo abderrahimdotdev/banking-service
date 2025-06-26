@@ -8,9 +8,14 @@ public class Main {
         
         AccountService acc = new Account();
 
-        acc.deposit(1000);
-        acc.deposit(2000);
-        acc.withdraw(500);
+        try{
+            acc.deposit(1000);
+            acc.deposit(2000);
+            acc.withdraw(500);
+        }catch(Exception e){
+            System.err.println(e.getMessage());
+        }
+        
 
         acc.printStatement();
     }
