@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 
 public record Transaction(int amount, TransactionType type, Instant timestamp, int balance) {
     public Transaction {
-        // Validate the given Instant object to prevent inserting an old timestamp
+        // Validates the given Instant object to prevent inserting an old timestamp
         if (timestamp.isBefore(Instant.now().minusMillis(1)))
             throw new IllegalArgumentException("Invalid timestamp value.");
     }

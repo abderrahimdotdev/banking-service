@@ -10,8 +10,8 @@ import dev.abderrahim.bank.types.TransactionType;
 public class Account implements AccountService {
     private int balance;
     // Since transaction history must be kept ordered and to reduce coupling on an
-    // actual implementation,
-    // I chose to use a SequencedCollection as data type of transactions history
+    // actual implementation, I chose to use a SequencedCollection as data type of
+    // transactions history
     private final SequencedCollection<Transaction> transactionsHistory;
 
     public Account() {
