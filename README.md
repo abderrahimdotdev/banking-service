@@ -12,4 +12,4 @@ git clone https://github.com/abderrahimdotdev/banking-service.git
 
 ## Technical Test 2
 
-The technical test 2 can be found [here](https://www.github.com/).
+The technical test 2 can be found [here](https://github.com/abderrahimdotdev/hotel-reservation-system).
