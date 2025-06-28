@@ -1,6 +1,6 @@
 package dev.abderrahim.bank.services;
 
-import java.time.ZonedDateTime;
+import java.time.Instant;
 import java.util.LinkedList;
 import java.util.SequencedCollection;
 
@@ -33,8 +33,8 @@ public class Account implements AccountService {
 
         if (amount <= 0)
             throw new IllegalArgumentException("Withdrawn amount cannot be zero or a negative number.");
-        else if (balance != 0 && amount > balance)
-            throw new IllegalArgumentException("The amount is greater than the current balance");
+        else if (amount > balance)
+            throw new IllegalArgumentException("The withdrawn money is greater than the current balance.");
 
         this.balance -= amount;
         logTransaction(amount, TransactionType.WITHDRAW);
@@ -47,7 +47,7 @@ public class Account implements AccountService {
     }
 
     private void logTransaction(int amount, TransactionType type) {
-        Transaction t = new Transaction(amount, type, ZonedDateTime.now().toInstant(), balance);
+        Transaction t = new Transaction(amount, type, Instant.now(), balance);
         transactionsHistory.addFirst(t);
     }
 }
